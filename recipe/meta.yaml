@@ -34,6 +34,7 @@ test:
     - youtube_dl_gui
   commands:
     - pip check
+    #Can't test yt-dlg entry-point since this is a graphic interface
   requires:
     - pip
 
