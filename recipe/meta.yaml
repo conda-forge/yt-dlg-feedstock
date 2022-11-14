@@ -1,5 +1,5 @@
 {% set name = "yt-dlg" %}
-{% set version = "1.8.3" %}
+{% set version = "1.8.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/yt_dlg-{{ version }}.tar.gz
-  sha256: 29340a44b90672e2e23fc96436117de2835c54ae7dc1845308b9cbf464e153f5
+  sha256: c8b5ce181eb7c678659ced228a061515eb5b85b920eb5e0239fe428da85779e4
 
 build:
-  noarch: python 
+  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
   entry_points:
