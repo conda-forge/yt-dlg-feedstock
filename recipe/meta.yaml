@@ -1,5 +1,5 @@
 {% set name = "yt-dlg" %}
-{% set version = "1.8.3" %}
+{% set version = "1.8.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/yt_dlg-{{ version }}.tar.gz
-  sha256: 29340a44b90672e2e23fc96436117de2835c54ae7dc1845308b9cbf464e153f5
+  sha256: c8b5ce181eb7c678659ced228a061515eb5b85b920eb5e0239fe428da85779e4
 
 build:
-  noarch: python 
+  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
   entry_points:
@@ -24,7 +24,7 @@ requirements:
     - python >=3.7
   run:
     - polib >=1.1.0
-    - pyinstaller <=4.6,>=3.6
+    - pyinstaller <=5.6.2,>=3.6
     - pypubsub >=4.0.3
     - python >=3.7
     - wxpython <=4.1.2a1,>=4.0.7.post2
@@ -34,6 +34,7 @@ test:
     - youtube_dl_gui
   commands:
     - pip check
+    #Can't test yt-dlg entry-point since this is a graphic interface
   requires:
     - pip
 
