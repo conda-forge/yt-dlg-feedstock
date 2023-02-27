@@ -1,5 +1,5 @@
 {% set name = "yt-dlg" %}
-{% set version = "1.8.4" %}
+{% set version = "1.8.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/yt_dlg-{{ version }}.tar.gz
-  sha256: c8b5ce181eb7c678659ced228a061515eb5b85b920eb5e0239fe428da85779e4
+  sha256: fbb8204029ec1a6becea84c035b849ab8f8555ecf36cd46b4ea25e9d32ae6114
 
 build:
   noarch: python
@@ -18,10 +18,12 @@ build:
 
 requirements:
   host:
-    - pip
+    - python >=3.7
+    - setuptools >=40.0.4
+    - wheel >=0.29.0
     - polib
     - pyinstaller
-    - python >=3.7
+    - pip
   run:
     - polib >=1.1.0
     - pyinstaller <=5.6.2,>=3.6
