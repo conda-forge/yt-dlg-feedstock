@@ -6,19 +6,19 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/yt_dlg-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/yt_dlg-{{ version }}.tar.gz
   sha256: fbb8204029ec1a6becea84c035b849ab8f8555ecf36cd46b4ea25e9d32ae6114
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   entry_points:
     - yt-dlg = youtube_dl_gui.app:main
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - setuptools >=40.0.4
     - wheel >=0.29.0
     - polib
@@ -28,7 +28,7 @@ requirements:
     - polib >=1.1.0
     - pyinstaller <=5.6.2,>=3.6
     - pypubsub >=4.0.3
-    - python >=3.7
+    - python >={{ python_min }}
     - wxpython <=4.1.2a1,>=4.0.7.post2
 
 test:
@@ -39,6 +39,7 @@ test:
     #Can't test yt-dlg entry-point since this is a graphic interface
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://oleksis.github.io/youtube-dl-gui/
